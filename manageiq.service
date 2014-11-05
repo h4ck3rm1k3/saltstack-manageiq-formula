@@ -1,0 +1,11 @@
+[Unit]
+Description=ManageIQ
+
+[Service]
+Type=forking
+WorkingDirectory={{ root_dir }}/vmdb
+ExecStart={{ root_dir }}/vmdb/bin/rake evm:start 
+ExecStop={{ root_dir }}/vmdb evm:stop
+
+[Install]
+WantedBy=multi-user.target

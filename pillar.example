@@ -1,0 +1,5 @@
+manageiq:
+  root_dir: /var/www/miq
+  postgres:
+    prod_root_password: password
+    devel_root_password: password
