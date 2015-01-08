@@ -15,7 +15,7 @@ miq-pkgs:
       - {{ miq_map.memcached }}
       - {{ miq_map.apache }}
       - {{ miq_map.nettools }}
-{% if miq_settings.enviroment = "production" %}
+{% if miq_settings.enviroment == "production" %}
       - {{ miq_map.nodejs }}
 {% endif %}
 
@@ -135,7 +135,7 @@ shared_objects:
       - service: memcached
     - unless: test -f {{ miq_settings.root_dir }}/lib/disk/modules/MiqBlockDevOps.so
 
-{% if miq_settings.enviroment = "production" %}
+{% if miq_settings.enviroment == "production" %}
 production_build:
   cmd.run:
     - name: cd {{ miq_settings.root_dir }}/vmdb ; RAILS_ENV=production rake evm:compile_assets
